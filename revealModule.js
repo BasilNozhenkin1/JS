@@ -1,16 +1,16 @@
 var heroes = (function(){
   var publicHeroes = ['Batman', 'Superman'];
-  var set = function(i, name) {
-    publicHeroes[i] = name;
-  };
-  var get = function(i) {
-    return publicHeroes[i];
-  };
   var privateOpponents  = {
     'Darkside': 'Batman',
     'Superwoman': 'Superman',
     'Batman': 'Darkside',
     'Superman': 'Superwoman'
+  };
+  var set = function(i, name) {
+    publicHeroes[i] = name;
+  };
+  var get = function(i) {
+    return publicHeroes[i];
   };
   var getOpponent = function (name) {
     return privateOpponents[name];
