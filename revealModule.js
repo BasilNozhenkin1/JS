@@ -1,19 +1,29 @@
 var heroes = (function(){
-  var _privateHeroes = ['Darkside', 'Superwoman'],
-      publicHeroes = ['Batman', 'Superman'];
+  var publicHeroes = ['Batman', 'Superman'];
   var set = function(i, name) {
     publicHeroes[i] = name;
   };
   var get = function(i) {
     return publicHeroes[i];
   };
+  var privateOpponents  = {
+    'Darkside': 'Batman',
+    'Superwoman': 'Superman',
+    'Batman': 'Darkside',
+    'Superman': 'Superwoman'
+  };
+  var getOpponent = function (name) {
+    return privateOpponents[name];
+  }
   return {
     setter: set,
     getter: get,
-    list: publicHeroes
+    getOpponent: getOpponent,
+    listOfHeroes: publicHeroes
   };
 })();
-console.log(heroes.list);
+console.log(heroes.listOfHeroes);
 console.log(heroes.getter(1));
 heroes.setter(1, 'Catwoman');
-console.log(heroes.list);
+console.log(heroes.listOfHeroes);
+console.log(heroes.getOpponent('Batman'))
